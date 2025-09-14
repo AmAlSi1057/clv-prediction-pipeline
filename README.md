@@ -3,67 +3,71 @@
 ![Project Status](https://img.shields.io/badge/status-in%20progress-yellow)
 ![License](https://img.shields.io/badge/license-MIT-blue)
 
-An open-source research project to architect and build a professional-grade, end-to-end data pipeline for predicting Customer Lifetime Value (CLV) on a real-world e-commerce dataset.
+An open-source project to build a professional-grade, cloud-native, end-to-end data pipeline for predicting Customer Lifetime Value (CLV) in a realistic 2-4 week sprint.
 
 ---
 
 ## 1. Business Problem & Project Goal
 
-In e-commerce, identifying high-value customers early is critical for targeted marketing, retention efforts, and maximizing profitability. This project aims to solve this by building a system that predicts the future revenue a customer will generate based on their initial characteristics and purchasing behavior.
-
-The primary goal is to create a robust, reproducible, and well-documented pipeline that mirrors a professional data science workflow, from raw data engineering to model deployment.
+In e-commerce, identifying high-value customers early is critical for targeted marketing and maximizing profitability. This project builds a system to predict future customer revenue based on initial purchasing behavior. The goal is to create a robust, end-to-end pipeline that mirrors a modern, agile data science workflow, resulting in a deployable asset.
 
 ## 2. Tech Stack & Architecture
 
-This project utilizes a modern, industry-standard data stack to ensure scalability and reproducibility.
+This project utilizes a modern, industry-standard, cloud-native data stack.
 
-**Tech Stack:**
-* **Language:** Python 3.11
-* **Data Storage:** PostgreSQL (managed with Docker)
+* **Cloud Platform:** Google Cloud Platform (GCP)
+* **Data Warehouse:** Google BigQuery
 * **Data Transformation:** dbt (Data Build Tool)
-* **ML & Data Manipulation:** Pandas, Scikit-learn, XGBoost
+* **ML & Data Manipulation:** Python, Pandas, Scikit-learn, XGBoost
+* **API & Deployment:** FastAPI, Docker
 * **Web App / Demo:** Streamlit
-* **Environment & Packaging:** Poetry, Git
+* **Code Management:** Git, GitHub
 
 **Project Architecture:**
 
-`Raw Data (CSVs) -> [PostgreSQL in Docker] -> [dbt Transformation] -> Clean Analytical Table -> [Python ML Pipeline (Train/Predict)] -> Trained Model (.pkl) -> [Streamlit Demo App]`
+`Raw Data (CSVs) -> [Google BigQuery] -> [dbt Transformation] -> Clean Analytical Table -> [Python ML Pipeline] -> Trained Model (.pkl) -> [FastAPI in Docker] -> [Streamlit App]`
 
 ## 3. Current Status
 
-⚠️ **Project in Progress: Phase 1 - Data Engineering & Transformation.**
+✅ **Phase 0: Project Setup & Planning Complete.**
+▶️ **Phase 1: Week 1 - Core Pipeline (MVP) in Progress.**
 
-Currently focused on building the foundational data models in `dbt` to transform the raw, multi-table Olist dataset into a clean, single analytical base table ready for machine learning.
+## 4. Project Roadmap (2-4 Week Sprint)
 
-## 4. Project Roadmap
+### **Week 1: Core Pipeline (MVP)**
+- [ ] **Setup & Data Loading:**
+    - [ ] Set up Google Cloud Platform (GCP) project and BigQuery dataset.
+    - [ ] Load Olist dataset into BigQuery.
+    - [ ] Initialize dbt project and connect to BigQuery.
+- [ ] **Basic Data Transformation:**
+    - [ ] Build simple dbt `staging` models to clean data.
+    - [ ] Create one analytical `mart` table with foundational features (e.g., RFM).
+    - [ ] Implement basic dbt tests for data quality checks.
+- [ ] **Simple Model:**
+    - [ ] Conduct basic EDA in a Jupyter Notebook.
+    - [ ] Train a baseline XGBoost model with cross-validation.
+    - [ ] Save the trained model artifact and document the initial approach.
 
-- [x] **Phase 0: Setup & Architecture**
-    - [x] Define business problem and project scope.
-    - [x] Initialize GitHub repository and project structure.
-    - [x] Set up Dockerized PostgreSQL environment.
-    - [x] Initialize dbt project.
-- [ ] **Phase 1: Data Engineering & Transformation (In Progress)**
-    - [ ] Load raw data into PostgreSQL.
-    - [ ] Build staging models in dbt to clean data.
-    - [ ] Build a final `marts` model in dbt to create the analytical base table with engineered features (RFM, etc.).
-- [ ] **Phase 2: Modeling & Experimentation**
-    - [ ] Conduct Exploratory Data Analysis (EDA).
-    - [ ] Develop a Scikit-learn preprocessing pipeline.
-    - [ ] Train baseline and XGBoost models.
-    - [ ] Evaluate model performance and analyze feature importance.
-- [ ] **Phase 3: Packaging & Automation**
-    - [ ] Refactor notebook code into a reusable, installable Python package.
-    - [ ] Create a Command-Line Interface (CLI) for running predictions.
-- [ ] **Phase 4: Deployment & Presentation**
-    - [ ] Build an interactive Streamlit web application to demonstrate the model.
-    - [ ] Deploy the Streamlit app to a public cloud service.
-- [ ] **Phase 5: Documentation & Promotion**
-    - [ ] Finalize this README with setup instructions and results.
-    - [ ] Write a detailed blog post explaining the project lifecycle and findings.
+### **Week 2: Make It Production-Ready**
+- [ ] **API Development:**
+    - [ ] Build a simple FastAPI with a `/predict` endpoint.
+    - [ ] Implement basic input validation with Pydantic.
+    - [ ] Containerize the API using Docker.
+- [ ] **Basic Frontend:**
+    - [ ] Build a Streamlit application with file upload and prediction display.
+    - [ ] Add simple visualizations of the results and feature importances.
+- [ ] **Documentation & Polish:**
+    - [ ] Update this README with setup instructions and results.
+    - [ ] Deploy the Streamlit app to a public service (e.g., Streamlit Community Cloud).
+
+### **Weeks 3-4: Enhance & Differentiate (Optional Stretch Goals)**
+- [ ] Add one advanced feature (e.g., SHAP explanations for model interpretability).
+- [ ] Write a detailed blog post on Medium explaining the project and findings.
+- [ ] Implement basic CI/CD with GitHub Actions to automate testing or deployment.
 
 ## 5. Getting Started
 
-*(This section will be filled out later with instructions on how to set up the environment and run the project.)*
+*(This section will be filled out with instructions on how to set up the environment, configure GCP credentials, and run the project.)*
 
 ## 6. License
 
